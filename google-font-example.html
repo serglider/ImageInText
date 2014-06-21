@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image In Text</title>
+  <style>
+    html,
+    body {
+        width:100%;
+        height:100%;
+    }
+    html {
+      display:table;
+    }
+    body {
+        display:table-cell;
+        vertical-align:middle;
+        padding: 0;
+        background: url(testimages/bg.jpg) repeat #000;
+    }
+   .container {
+        width:1px;
+        margin:0 auto;
+        position: relative;
+    }
+  </style>
+</head>
+<body>
+<div id="tm-container" class="container"></div>
+<script src="build/imageInText.min.js"></script>
+<script>
+    var iit;
+
+    var options = {
+
+    font: "Erica One",
+    // width: 600,
+    height: 200,
+    image: "http://texturewiz.com/Image.axd?i=Abstract/Cubes.jpg&o=i",
+    // testimages/1627.png
+    // testimages/old_map.png
+    // testimages/white_brick_wall_@2X.png
+    // testimages/881.png
+    // testimages/1335.png
+    // testimages/nebula.jpg
+    // http://static4.grsites.com/archive/textures/brick/brick001.jpg
+    // http://freedesignfile.com/upload/2012/05/Fire-7.jpg
+    // http://www.sommarmoln.com/Abs/2006_vertical_abstract2.jpg
+
+    // bgImage: "http://www.webtexture.net/wp-content/uploads/2011/06/2.jpg"
+    };
+
+    WebFontConfig = {
+        google: { families: [ 'Erica One' ] },
+        fontactive: function() {
+            iit = new ImageInText(options);
+        }
+    };
+
+    (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+
+</script>
+</body>
+</html>
