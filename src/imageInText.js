@@ -3,7 +3,7 @@ function ImageInText(config) {
 
 	var self = this,
 		options = {
-			container: "tm-container",
+			container: "iit-container",
 			text: "Lorem ipsum",
 			font: "fantasy",
 			fontWeight: "normal",
@@ -40,16 +40,20 @@ function ImageInText(config) {
 		sizes = options.height && options.width;
 	}
 
-	if ( container && options.image && sizes ) {
-		if ( options.bgImage ) {
-			bgimage.onload = function () {
+	if ( container && sizes ) {
+		if ( options.image ) {
+			if ( options.bgImage ) {
+				bgimage.onload = function () {
+					image.onload = launch;
+					image.src = options.image;
+				};
+				bgimage.src = options.bgImage;
+			}else {
 				image.onload = launch;
 				image.src = options.image;
-			};
-			bgimage.src = options.bgImage;
+			}
 		}else {
-			image.onload = launch;
-			image.src = options.image;
+			launch();
 		}
 	}
 
@@ -98,11 +102,16 @@ function ImageInText(config) {
 
 		bctx.drawImage(tcanvas, 0, 0, width, height);
 		bctx.globalCompositeOperation = "source-in";
-		if ( width > image.width || height > image.height ) {
-			bctx.fillStyle = bctx.createPattern(image, "repeat");
-			bctx.fillRect(0, 0, width, height);
+		if ( options.image ) {
+			if ( width > image.width || height > image.height ) {
+				bctx.fillStyle = bctx.createPattern(image, "repeat");
+				bctx.fillRect(0, 0, width, height);
+			}else {
+				bctx.drawImage(image, 0, 0);
+			}
 		}else {
-			bctx.drawImage(image, 0, 0);
+			bctx.fillStyle = "#000";
+			bctx.fillRect(0, 0, width, height);
 		}
 		if ( options.bgImage ) {
 			bctx.globalCompositeOperation = "destination-over";
