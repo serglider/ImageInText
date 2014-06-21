@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example</title>
+  <style>
+    .container {
+        width:30%;
+        height:5em;
+    }
+  </style>
+</head>
+<body>
+<div id="tm-container" class="container"></div>
+<script src="../build/imageInText.min.js"></script>
+<script>
+  var options = {
+    // container: "container",
+    // text: "test",
+    font: "fantasy", // fantasy sans-serif serif monospace cursive
+    fontWeight: "bold", // bold  normal
+    // width: 600,
+    // height: 30,
+    mode: "repeat", // repeat adjust
+    image: "../testimages/1627.png",
+    // testimages/1627.png
+    // testimages/1335.png
+    // testimages/nebula.jpg
+    // http://freedesignfile.com/upload/2012/05/Fire-7.jpg
+    // http://www.sommarmoln.com/Abs/2006_vertical_abstract2.jpg
+
+    // bgImage: "http://www.sommarmoln.com/Abs/2006_vertical_abstract2.jpg"
+  };
+
+  var iit = new ImageInText(options);
+</script>
+</body>
+</html>
