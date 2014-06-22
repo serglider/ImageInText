@@ -42,7 +42,7 @@ The algorithm of finding sizes of the element containing text is:
 
 - if the both sizes provided - it calculates the font size needed to hold the text within that width. Draw the text and then stretch or squeeze it to meet the height. The high degree of that distortion gives not that great results. Please avoid this.
 
-- if no size provided (default) - it reads sizes of the element via `getBoundingClientRect` method and then sets appropriate font size.
+- if no size provided (default) - it reads sizes of the element via `getBoundingClientRect` method and then sets appropriate font size. This is better suited for responsive design.
 
 ### Google Web Fonts
 
