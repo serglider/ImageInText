@@ -34,11 +34,19 @@ Name | Type | Default | Description
 
 ### Sizes
 
-ToDo
+The algorithm of finding sizes of the element containing text is:
+
+- if the height provided - it calculates the width needed to hold the text which font size equals height.
+
+-  if the width provided - it calculates the font size needed to hold the text within that width.
+
+- if the both sizes provided - it calculates the font size needed to hold the text within that width. Draw the text and then stretch or squeeze it to meet the height. The high degree of that distortion gives not that great results. Please avoid this.
+
+- if no size provided (default) - it reads sizes of the element via `getBoundingClientRect` method and then sets appropriate font size.
 
 ### Google Web Fonts
 
-ToDo
+The Google Web Fonts is an excellent tool to make your page more expressive. But if you want use it with ImageInText, you have to take care of loading it before the script will run. You can find one of possible ways to handle this in the Examples folder.
 
 ### Copyright and license
 
